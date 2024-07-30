@@ -6,11 +6,13 @@ const userResolvers = {
     DOCENTE: "DOCENTE",
     COORDENACAO: "COORDENACAO"
   },
+
   respostaCustom: {
     __resolveType(obj, context, info) { 
       return false
     },
   },
+
   DateTime: new GraphQLScalarType({
     name: 'DateTime',
     description: 'string de data e hora no formato ISO-8601',
@@ -18,10 +20,12 @@ const userResolvers = {
     parseValue: (value) => new Date(value),
     parseLiteral: (ast) => new Date(ast.value)
   }),
+
   Query: {
     users: (root, args, { dataSources }) => dataSources.usersAPI.getUsers(),
     user: (root, { id }, { dataSources }) => dataSources.usersAPI.getUserById(id)
   },
+
   Mutation: {
     adicionaUser: async (root, { user }, { dataSources }) => dataSources.usersAPI.adicionaUser(user),
     atualizaUser: async (root, novosDados, { dataSources }) => {
@@ -30,8 +34,9 @@ const userResolvers = {
     },
     deletaUser: async (root, { id }, { dataSources }) => dataSources.usersAPI.deletaUser(id)
   },
+
   User: {
-    matriculas: (parent, _, { dataSources }) => dataSources.matriculasAPI.getMatriculasPorEstudante(parent.id)
+    matriculas: (parent, _, { dataSources }) => dataSources.matriculasAPI.getMatriculasPorEstudante.load(parent.id)
   }
 }
 

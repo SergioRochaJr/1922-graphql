@@ -22,6 +22,7 @@
     "apollo-datasource": "^3.3.2",
     "apollo-datasource-rest": "^3.7.0",
     "apollo-server": "^3.13.0",
+    "dataloader": "^2.2.2",
     "datasource-sql": "^2.1.0",
     "graphql": "^16.9.0",
     "graphql-scalars": "^1.23.0",
