@@ -41,6 +41,12 @@
       "ativo": true,
       "email": "m@m.com",
       "role": 2
+    },
+    {
+      "nome": "sorry",
+      "ativo": false,
+      "role": 1,
+      "id": 7
     }
   ],
   "roles": [
